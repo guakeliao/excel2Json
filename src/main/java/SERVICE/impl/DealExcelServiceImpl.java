@@ -23,7 +23,7 @@ public class DealExcelServiceImpl implements DealExcelService {
             }
         })).sheet().doRead();
         JSONObject ob = new JSONObject();
-        //获取required
+        //获取required,我只判断了是.
         ArrayList<String> requireList = new ArrayList<>();
         arrayList.stream().reduce(requireList, (list, item) -> {
             if ("是".equals(item.required)) {
@@ -34,7 +34,6 @@ public class DealExcelServiceImpl implements DealExcelService {
         ob.put("required", requireList);
         //获取properties
         JSONObject property = new JSONObject();
-
         arrayList.stream().reduce(property, (pro, item) -> {
             JSONObject sub = new JSONObject();
             sub.put("type", "string");
