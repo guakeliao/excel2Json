@@ -21,7 +21,7 @@ public class DealExcelServiceImpl implements DealExcelService {
             for (DataModel demoData : dataList) {
                 arrayList.add(demoData);
             }
-        })).sheet().doRead();
+        })).sheet().headRowNumber(0).doRead();
         JSONObject ob = new JSONObject();
         //获取required,我只判断了是.
         ArrayList<String> requireList = new ArrayList<>();
